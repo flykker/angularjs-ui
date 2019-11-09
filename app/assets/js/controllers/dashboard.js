@@ -107,16 +107,14 @@ app.controller('DashboardController',
     color: { pattern: pattern.reverse() }
   };
 
-  var server_load_chart = c3.generate(server_load_options);
+
   var interval;
 
   createInterval = function() {
     return $interval(function(){
       v = random_load_value(40, 80);
       $scope.serverLoad = v+'%';
-      server_load_chart.flow({
-        columns: [['Server load', v]]
-      });
+      
     }, 2500);
   };
 

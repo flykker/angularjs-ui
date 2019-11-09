@@ -118,17 +118,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // optimize images
-    imagemin : {
-      dynamic : {
-        files : [{
-          expand : true,
-          cwd : '<%= appConfig.assets %>img/', // source images (not compressed)
-          src : ['**/*.{png,jpg,gif,svg,xml,json,ico}'], // Actual patterns to match
-          dest : '<%= appConfig.distAssets %>img/' // Destination of compressed files
-        }]
-      }
-    },
 
     // add rev to bust cache
     filerev: {
@@ -233,8 +222,8 @@ module.exports = function(grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'imagemin',
-    'usebanner'
+    //'imagemin',
+    //'usebanner'
   ]);
 
 };

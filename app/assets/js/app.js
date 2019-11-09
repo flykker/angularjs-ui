@@ -14,7 +14,7 @@ var app = angular.module('materialism', [
   'uiGmapgoogle-maps',
   'ui.select',
 
-  'gridshore.c3js.chart',
+  //'gridshore.c3js.chart',
   'monospaced.elastic',     // resizable textarea
   'mgcrea.ngStrap',
   'jcs-autoValidate',

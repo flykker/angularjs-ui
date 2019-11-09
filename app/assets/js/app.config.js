@@ -7,6 +7,7 @@ app.config(['$routeProvider', function($routeProvider) {
         return 'assets/tpl/' + attr.folder + '/' + attr.tpl + '.html';
       }
     }).when('/:tpl', {
+      
       templateUrl: function(attr){
         return 'assets/tpl/' + attr.tpl + '.html';
       }
