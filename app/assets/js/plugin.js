@@ -1,8 +1,8 @@
 // the module should depend on 'core' to use the stock Angular components
 
-angular.module('plugin.website', ['materialism']);
+angular.module('plugin.website', ['app']);
 
-angular.module('materialism').config(function($routeProvider){
+angular.module('app').config(function($routeProvider){
     $routeProvider.when('/plugins/demo2', {
         templateUrl: 'assets/tpl/demo2.html',
         controller: 'TablesDataController',
