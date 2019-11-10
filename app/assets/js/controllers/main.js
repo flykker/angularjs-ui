@@ -1,6 +1,6 @@
 app.controller('MainController',
-  ['$scope', '$animate', 'localStorageService', 'todoService', '$alert', '$timeout',
-  function($scope, $animate, localStorageService, todoService, $alert, $timeout){
+  ['$scope', '$animate', 'localStorageService', '$alert', '$timeout',
+  function($scope, $animate, localStorageService, $alert, $timeout){
 
   if (typeof(browser_old) == "undefined"){
     initRipplesWithArrive();
@@ -17,19 +17,7 @@ app.controller('MainController',
   ];
 
   // Add todoService to scope
-  service = new todoService($scope);
-  $scope.todosCount = service.count();
-  $scope.$on('todos:count', function(event, count) {
-    $scope.todosCount = count;
-    element = angular.element('#todosCount');
-
-    if ( !element.hasClass('animated') ){
-      $animate.addClass(element, 'animated bounce', function() {
-        $animate.removeClass(element, 'animated bounce');
-      });
-    }
-  });
-
+  
   $scope.fillinContent = function(){
     $scope.htmlContent = 'content content';
   };

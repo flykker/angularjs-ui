@@ -1,21 +1,54 @@
 // the module should depend on 'core' to use the stock Angular components
 
-angular.module('plugin.demo2', []);
+angular.module('plugin.website', ['materialism']);
 
 angular.module('materialism').config(function($routeProvider){
     $routeProvider.when('/plugins/demo2', {
         templateUrl: 'assets/tpl/demo2.html',
-        controller: 'Demo2Controller',
+        controller: 'TablesDataController',
     });
 });
 
-angular.module('plugin.demo2').controller('Demo2Controller', function($scope){
+angular.module('plugin.website').controller('TablesDataController', ['$scope', 'PlaceholderTextService', 'ngTableParams', '$filter', function($scope, PlaceholderTextService, ngTableParams, $filter){
 
-    $scope.counter = 0;
-
-    $scope.click = function(){
-        $scope.counter += 1;
-        
-        console.log("Plugin click");
-    };
-});
+    // adding demo data
+    var data = [];
+    for (var i = 1; i <= 50; i++){
+      data.push({
+        icon: PlaceholderTextService.createIcon(),
+        firstname: PlaceholderTextService.createFirstname(),
+        lastname: PlaceholderTextService.createLastname(),
+        paragraph: PlaceholderTextService.createSentence()
+      });
+    }
+    $scope.data = data;
+  
+    $scope.tableParams = new ngTableParams({
+      page: 1,            // show first page
+      count: 10,
+      sorting: {
+        firstname: 'asc'     // initial sorting
+      }
+    }, {
+      filterDelay: 50,
+      total: data.length, // length of data
+      getData: function($defer, params) {
+        var searchStr = params.filter().search;
+        var mydata = [];
+  
+        if(searchStr){
+          mydata = data.filter(function(item){
+            return item.firstname.toLowerCase().indexOf(searchStr) > -1 || item.lastname.toLowerCase().indexOf(searchStr) > -1;
+          });
+        } else {
+          mydata = data;
+        }
+  
+        mydata = params.sorting() ? $filter('orderBy')(mydata, params.orderBy()) : mydata;
+        $defer.resolve(mydata.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+      }
+    });
+  
+  
+  }]);
+  

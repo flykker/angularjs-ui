@@ -2,25 +2,7 @@
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {
     templateUrl: 'assets/tpl/dashboard.html'
-  }).when('/:folder/:tpl', {
-      templateUrl: function(attr){
-        return 'assets/tpl/' + attr.folder + '/' + attr.tpl + '.html';
-      }
-    }).when('/:tpl', {
-      
-      templateUrl: function(attr){
-        return 'assets/tpl/' + attr.tpl + '.html';
-      }
-    }).otherwise({ redirectTo: '/' });
-}])
-
-// google maps
-.config(['uiGmapGoogleMapApiProvider', function(uiGmapGoogleMapApiProvider) {
-  uiGmapGoogleMapApiProvider.configure({
-    //    key: 'your api key',
-    v: '3.17',
-    libraries: 'weather,geometry,visualization'
-  });
+  }).otherwise({ redirectTo: '/' });
 }])
 
 // loading bar settings
