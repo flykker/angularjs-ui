@@ -32,8 +32,13 @@
   <link rel="manifest" href="../assets/img/favicon/manifest.json">
   <link rel="shortcut icon" href="../assets/img/favicon/favicon.ico">
 
-  <link href="../assets/css/vendors.min.d5d63b242d17c0357f8f.css" rel="stylesheet" />
-  <link href="../assets/css/styles.min.ad0774f90de736e9d405.css" rel="stylesheet" />
+  <!-- reusebuild:css ../assets/css/vendors.min.css -->
+  <!-- endreusebuild -->
+  <!-- reusebuild:css ../assets/css/styles.min.css -->
+  <link href="../assets/css/materialism.css" rel="stylesheet" />
+  <link href="../assets/css/helpers.css" rel="stylesheet" />
+  <link href="../assets/css/ripples.css" rel="stylesheet" />
+  <!-- endreusebuild -->
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -89,8 +94,15 @@
     </div>
   </div>
 
-  <script charset="utf-8" src="../assets/js/vendors.min.5af7101ab6602e791a96.js"></script>
-  <script charset="utf-8" src="../assets/js/app.min.2fc0530b7a4c1a801ecb.js"></script>
+  <!-- reusebuild:js ../assets/js/vendors.min.js -->
+  <script charset="utf-8" src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script charset="utf-8" src="/bower_components/angular/angular.js"></script>
+  <script charset="utf-8" src="/bower_components/arrive/src/arrive.js"></script>
+  <!-- endreusebuild -->
+  <!-- reusebuild:js ../assets/js/app.min.js -->
+  <script charset="utf-8" src="../assets/js/vendors/ripples.js"></script>
+  <script charset="utf-8" src="../assets/js/vendors/init-ripples.js"></script>
+  <!-- endreusebuild -->
 
   <script type="text/javascript">
     var app = angular.module('materialism', []);

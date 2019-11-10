@@ -32,8 +32,14 @@
   <link rel="manifest" href="../assets/img/favicon/manifest.json">
   <link rel="shortcut icon" href="../assets/img/favicon/favicon.ico">
 
-  <link href="../assets/css/vendors.min.d5d63b242d17c0357f8f.css" rel="stylesheet" />
-  <link href="../assets/css/styles.min.ad0774f90de736e9d405.css" rel="stylesheet" />
+  <!-- reusebuild:css ../assets/css/vendors.min.css -->
+  <link href="/bower_components/material-design-iconic-font/css/material-design-iconic-font.css" rel="stylesheet" />
+  <!-- endreusebuild -->
+  <!-- reusebuild:css ../assets/css/styles.min.css -->
+  <link href="../assets/css/materialism.css" rel="stylesheet" />
+  <link href="../assets/css/helpers.css" rel="stylesheet" />
+  <link href="../assets/css/ripples.css" rel="stylesheet" />
+  <!-- endreusebuild -->
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>

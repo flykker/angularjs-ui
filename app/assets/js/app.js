@@ -22,5 +22,5 @@ var app = angular.module('materialism', [
   'textAngular',
   'fsm',                    // sticky header
   'smoothScroll',
-  'LocalStorageModule'
+  'LocalStorageModule', 'plugin.demo2'
 ]);
