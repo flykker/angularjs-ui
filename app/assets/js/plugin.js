@@ -6,7 +6,16 @@ angular.module('materialism').config(function($routeProvider){
     $routeProvider.when('/plugins/demo2', {
         templateUrl: 'assets/tpl/demo2.html',
         controller: 'TablesDataController',
-    });
+    }).when('/:folder/:tpl', {
+              templateUrl: function(attr){
+                return 'assets/tpl/' + attr.folder + '/' + attr.tpl + '.html';
+              }
+            }).when('/:tpl', {
+              
+              templateUrl: function(attr){
+                return 'assets/tpl/' + attr.tpl + '.html';
+              }
+            });
 });
 
 angular.module('plugin.website').controller('TablesDataController', ['$scope', 'PlaceholderTextService', 'ngTableParams', '$filter', function($scope, PlaceholderTextService, ngTableParams, $filter){
